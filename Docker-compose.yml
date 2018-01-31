@@ -1,0 +1,19 @@
+version: '2'
+services:
+  apache:
+    image: php:apache
+    volumes:
+    - "./src/:/var/www/html"
+    links:
+    - mysql
+    ports:
+    - "8080:80"
+    privileged: true
+
+  mysql:
+    image: mysql:latest
+    volumes:
+    - "./data/:/var/lib/mysql"
+    environment:
+        MYSQL_ROOT_PASSWORD: passroot
+    privileged: true
