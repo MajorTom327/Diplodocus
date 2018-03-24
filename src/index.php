@@ -2,6 +2,6 @@
 
 $page = new Page("Test");
 $page->head();
-$page->body();
+// $page->body();
 Router::dispatch();
 $page->foot();
