@@ -15,9 +15,9 @@ class Route {
 	*	@param $uri is the uri for the request
 	*	@param $page is the class extended from Core/Page
 	*/
-	public function __constructor($uri, $page) {
-		$this->$_uri = $uri;
-		$this->$_page = $page;
+	public function __construct($uri, $page) {
+		$this->_uri = $uri;
+		$this->_page = $page;
 	}
 
 	/** uri
@@ -29,7 +29,7 @@ class Route {
 	public function uri($value = "") {
 		if ($value !== "")
 			$this->_uri = $value;
-		return ($this->uri);
+		return ($this->_uri);
 	}
 
 	/** page
