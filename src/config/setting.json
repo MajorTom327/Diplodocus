@@ -4,5 +4,8 @@
 				"pass": "root",
 				"base": "base",
 				"host": "localhost"
+			},
+			"main": {
+				"sitename": "Site Name"
 			}
 		}

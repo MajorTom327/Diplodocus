@@ -26,6 +26,9 @@ class Setting {
 				"pass": "root",
 				"base": "base",
 				"host": "localhost"
+			},
+			"main": {
+				"sitename": "Site Name"
 			}
 		}
 EOT;
@@ -57,5 +60,12 @@ EOT;
 	 */
 	public static function database() {
 		return (static::$_setting->database);
+	}
+
+	/**
+	 * Get Main Config
+	 */
+	public static function main() {
+		return (static::$_setting->main);
 	}
 }

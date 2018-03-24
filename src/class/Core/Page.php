@@ -3,20 +3,24 @@
 * 	----------
 *	@file
 */
-class Page {
+abstract class Page {
 	protected $_title = "";
 	protected $_module = [];
+	protected $_view = "";
 
 	protected static $_script = [];
 	protected static $_end_script = [];
 	protected static  $_style = [];
 
+
 	/** Constructor
 	*	This function create the standard page.
 	*	@param $title is a string that set the Site title
+	*	@param $view is the string name of the view file
 	*/
-	public function __construct($title = "") {
+	public function __construct(String $title = "", String $view = "") {
 		$this->$_title = $title;
+		$this->$_view = $view;
 	}
 
 	/** head
@@ -25,7 +29,7 @@ class Page {
 	public function head() {
 		echo "<!DOCTYPE><html><head>";
 		echo "<meta charset='utf8'></meta>";
-		echo "<title>" . $this->$_title . "</title>";
+		echo "<title>" . $this->$_title . " | "  . Setting::main()->sitename. "</title>";
 		foreach (static::$_style as $css) self::render_style($css);
 		foreach (static::$_script as $script) self::render_script($script);
 		echo "</head>";
@@ -34,7 +38,7 @@ class Page {
 	/** body
 	*	Abstract function for page extending Page class for render body
 	*/
-	// abstract public function body();
+	abstract public function body();
 
 	/** foot
 	*	Generate the foot with script set in end
@@ -49,7 +53,7 @@ class Page {
 	*/
 	public function render() {
 		$this->head();
-		// $this->body();
+		$this->body();
 		$this->foot();
 	}
 
