@@ -23,4 +23,9 @@ class Router {
 	public static function find(String $route) {
 		return (static::$_routes[$route]);
 	}
+
+	public static function dispatch() {
+		$uri = $_SERVER['REQUEST_URI'];
+		echo $uri;
+	}
 }

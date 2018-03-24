@@ -1,10 +1,7 @@
-<?php require ('config/loader.php');?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>TEST</title>
-</head>
-<body>
-<h1>TEST BOILERPLATE</h1>
-</body>
-</html>
+<?php require ('config/loader.php');
+
+$page = new Page("Test");
+$page->head();
+$page->body();
+Router::dispatch();
+$page->foot();
