@@ -57,7 +57,6 @@ class Router {
 	public static function dispatch() {
 		$uri = $_SERVER['REQUEST_URI'];
 		$method = $_SERVER['REQUEST_METHOD'];
-		$per_method = [];
 		$list = [];
 		foreach (static::$_routes as $el) {
 			if ($uri == $el->uri())
