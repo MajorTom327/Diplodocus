@@ -1,4 +1,5 @@
 <?php
+require_once ("class/Core/Cli.php");
 require_once ("class/Core/Setting.php");
 Setting::load();
 

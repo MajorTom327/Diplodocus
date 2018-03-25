@@ -9,7 +9,7 @@
  */
 class Setting {
 	private static $_setting = null;
-	private static $file = "config/setting.json";
+	private static $file = "config/setting.php";
 
 	public function __construct() {
 		self::load();
@@ -20,20 +20,27 @@ class Setting {
 	 */
 	private static function default() {
 		return <<<EOT
-		{
-			"database": {
-				"user": "root",
-				"pass": "root",
-				"base": "base",
-				"host": "localhost"
-			},
-			"main": {
-				"sitename": "Site Name"
-			}
-		}
+<?php
+\$config = [
+	"database" => [
+		"user" => "root",
+		"pass" => "root",
+		"base" => "base",
+		"host" => "localhost"
+		],
+	"main" => [
+		"sitename" => "Site Name",
+		"script" => [],
+		"script_start" => [],
+		"style" => []
+		],
+	];
 EOT;
 	}
 
+	/**
+	 * Reset file of settings
+	 */
 	private static function reset() {
 		file_put_contents(static::$file, self::default());
 	}
@@ -46,26 +53,26 @@ EOT;
 		$config = "";
 		self::reset();
 		if (file_exists(static::$file))
-			$config = file_get_contents(static::$file);
+			require(static::$file);
 		else {
 			file_put_contents(static::$file, self::default());
+			require(static::$file);
 		}
-		static::$_setting = json_decode($config);
-		// var_dump(static::$_setting);
-		// var_dump(self::database());
+		static::$_setting = $config;
+
 	}
 
 	/**
 	 * Get Database Config
 	 */
 	public static function database() {
-		return (static::$_setting->database);
+		return (static::$_setting['database']);
 	}
 
 	/**
 	 * Get Main Config
 	 */
 	public static function main() {
-		return (static::$_setting->main);
+		return (static::$_setting['main']);
 	}
 }

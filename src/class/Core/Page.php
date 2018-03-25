@@ -10,7 +10,7 @@ abstract class Page {
 
 	protected static $_script = [];
 	protected static $_end_script = [];
-	protected static  $_style = [];
+	protected static $_style = [];
 
 
 	/** Constructor
@@ -19,8 +19,18 @@ abstract class Page {
 	*	@param $view is the string name of the view file
 	*/
 	public function __construct(String $title = "", String $view = "") {
-		$this->$_title = $title;
-		$this->$_view = $view;
+		$this->_title = $title;
+		$this->_view = $view;
+		$conf = Setting::main();
+		try {
+			foreach($conf['script_start'] as $script)
+				self::add_script($script, false);
+			foreach($conf['script'] as $script)
+				self::add_script($script);
+			foreach($conf['style'] as $style)
+				self::add_style($style);
+		}
+		catch (Exception $e) { echo $e->getMessage(); }
 	}
 
 	/** head
@@ -29,7 +39,7 @@ abstract class Page {
 	public function head() {
 		echo "<!DOCTYPE><html><head>";
 		echo "<meta charset='utf8'></meta>";
-		echo "<title>" . $this->$_title . " | "  . Setting::main()->sitename. "</title>";
+		echo "<title>" . $this->_title . " | "  . Setting::main()['sitename']. "</title>";
 		foreach (static::$_style as $css) self::render_style($css);
 		foreach (static::$_script as $script) self::render_script($script);
 		echo "</head>";
@@ -62,6 +72,7 @@ abstract class Page {
 	*	@return int
 	*/
 	public static function add_style($css) {
+		if ($script === "") throw new Exception("Cannot add an empty style");
 		if (in_array($css, static::$_style))
 			throw new Exception("You add style twice: " . $css);
 		static::$_style[] = $css;
@@ -72,6 +83,7 @@ abstract class Page {
 	*	@return int
 	*/
 	public static function add_script($script, $at_end = true) {
+		if ($script === "") throw new Exception("Cannot add an empty script");
 		if (in_array($script, static::$_script) || in_array($script, static::$_end_script))
 			throw new Exception("You add a script twice: " . $script);
 		if ($at_end)
