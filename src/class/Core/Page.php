@@ -80,7 +80,7 @@ abstract class Page extends Module {
 	public static function add_style($css) {
 		if ($css === "") throw new Exception("Cannot add an empty style");
 		if (in_array($css, static::$_style))
-			throw new Exception("You add style twice: " . $css);
+			return ($css);
 		static::$_style[] = $css;
 		return (1);
 	}
@@ -91,7 +91,7 @@ abstract class Page extends Module {
 	public static function add_script($script, $at_end = true) {
 		if ($script === "") throw new Exception("Cannot add an empty script");
 		if (in_array($script, static::$_script) || in_array($script, static::$_end_script))
-			throw new Exception("You add a script twice: " . $script);
+			return ($script);
 		if ($at_end)
 			static::$_end_script[] = $script;
 		else

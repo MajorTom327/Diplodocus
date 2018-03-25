@@ -17,7 +17,8 @@ class Navbar extends Component {
 		$this->addClass("navbar-expand-sm");
 		$this->addClass("bg-light");
 
-		$this->addLink("test", "http://example.com");
+		$this->addLink("Home", "/dashboard");
+		$this->addLink("Blog", "/blog");
 	}
 
 	/**
