@@ -1,4 +1,4 @@
-# Diplodocus# Diplodocus
+# Diplodocus
 
 Diplodocus is a simple framework for implementing MVC model and setting up simply.
 You edit road and create a class for handle it and render the associated page.
