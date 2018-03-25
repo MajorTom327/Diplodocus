@@ -7,6 +7,9 @@
 class Navbar extends Component {
 	protected $menu = null;
 
+	/**
+	 * Setting up a navbar
+	 */
 	public function __construct() {
 		$this->menu = new Menu();
 		$this->menu->addClass("nav");
@@ -17,13 +20,19 @@ class Navbar extends Component {
 		$this->addLink("test", "http://example.com");
 	}
 
+	/**
+	 * Add link to navbar
+	 */
 	public function addLink($text, $url) {
-		$x = new Item($text, $url);
+		$x = new Item(new Link($text, $url));
 		$x->addClass("nav-item");
-		$x->link()->addClass("nav-link");
+		$x->element()->addClass("nav-link");
 		$this->menu->addItem($x);
 	}
 
+	/**
+	 * rendering the nav
+	 */
 	public function render() {
 		echo "<nav " . $this->class() . " " . $this->id() . ">";
 		echo $this->menu->render();
