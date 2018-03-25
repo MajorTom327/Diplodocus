@@ -72,7 +72,7 @@ abstract class Page {
 	*	@return int
 	*/
 	public static function add_style($css) {
-		if ($script === "") throw new Exception("Cannot add an empty style");
+		if ($css === "") throw new Exception("Cannot add an empty style");
 		if (in_array($css, static::$_style))
 			throw new Exception("You add style twice: " . $css);
 		static::$_style[] = $css;
@@ -97,7 +97,7 @@ abstract class Page {
 	*	rendering a script beacon
 	*/
 	private static function render_script($script) {
-		echo "<script type='text/javascript' src='$script'></script>";
+		echo "<script type='text/javascript' src='$script' async></script>";
 	}
 	/** render_style
 	*	rendering a style beacon

@@ -51,7 +51,7 @@ EOT;
 	 */
 	public static function load() {
 		$config = "";
-		self::reset();
+		// self::reset();
 		if (file_exists(static::$file))
 			require(static::$file);
 		else {

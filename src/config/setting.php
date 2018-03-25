@@ -8,8 +8,12 @@ $config = [
 		],
 	"main" => [
 		"sitename" => "Site Name",
-		"script" => [],
+		"script" => [
+			"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		],
 		"script_start" => [],
-		"style" => []
+		"style" => [
+			"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			]
 		],
 	];
