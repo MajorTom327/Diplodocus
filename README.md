@@ -26,5 +26,7 @@ Now you can see it at: [http://localhost:8080/doc](http://localhost:8080/doc)
 
 ## Library
 We use somes libraries tha is usefull for some case, the list is here:
+
+| Library | Link to github | Licence | Purpose |
+| ------- | -------------- | ------- | ------- |
 | html-validator | [https://github.com/zrrrzzt/html-validator](https://github.com/zrrrzzt/html-validator) | MIT | Check W3C valid html generated |
-| - | - | - | - |
