@@ -6,5 +6,6 @@ class Dashboard extends Page {
 	}
 
 	public function body() {
+		// var_dump($this->_module['Navbar']);
 	}
 }

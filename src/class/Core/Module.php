@@ -16,10 +16,21 @@ class Module {
 			$this->_view .= ".php";
 	}
 
-	public function loadModule($module) {
-		$this->_module[get_class($module)] = $module;
+	/**
+	 * load a module
+	 * @param $module The module to load
+	 * @param $name name to put in array
+	 */
+	public function loadModule($module, $name = "") {
+		if ($name == "")
+			$name = get_class($module);
+		$this->_module[$name] = $module;
 	}
 
+
+	/**
+	 * Rendering all modules
+	 */
 	public function renderModule() {
 		foreach ($this->rendered_module as $module) { unset($module); }
 		$this->rendered_module = [];
