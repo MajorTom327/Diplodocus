@@ -1,1 +1,1 @@
-<?= $this->_module['Navbar']->render() ?>
+<?= $this->_module['Nav']->render() ?>

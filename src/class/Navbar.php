@@ -17,8 +17,7 @@ class Navbar extends Component {
 		$this->addClass("navbar-expand-sm");
 		$this->addClass("bg-light");
 
-		$this->addLink("Home", "/dashboard");
-		$this->addLink("Blog", "/blog");
+		// $this->addLink("Home", "/dashboard");
 	}
 
 	/**
@@ -38,5 +37,11 @@ class Navbar extends Component {
 		echo "<nav " . $this->class() . " " . $this->id() . ">";
 		echo $this->menu->render();
 		echo "</nav>";
+	}
+
+	public function menu($menu = null) {
+		if ($menu != null)
+			$this->menu = $menu;
+		return ($this->menu);
 	}
 }

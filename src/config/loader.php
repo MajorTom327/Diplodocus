@@ -20,4 +20,6 @@ require_once ("class/Item.php");
 require_once ("class/Menu.php");
 require_once ("class/Navbar.php");
 
+
+require_once ("modules/Nav.php");
 require_once ("config/routes.php");
