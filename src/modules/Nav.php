@@ -16,6 +16,12 @@ class Nav extends Module {
 	}
 
 	public function render() {
-		return ($this->menu->render());
+		ob_start();
+		$t = new Button(new Text("TEST"));
+		echo $t->render();
+		$this->menu->render();
+		$content = ob_get_contents();
+		ob_end_clean();
+		return ($content);
 	}
 }

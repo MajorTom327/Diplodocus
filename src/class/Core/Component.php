@@ -8,6 +8,7 @@ class Component {
 	protected $className = [];
 	protected $id = "";
 	protected $balise = "";
+	protected $element = null;
 
 	/**
 	 * Add a class to element
@@ -15,7 +16,8 @@ class Component {
 	public function addClass($class) {
 		if (in_array($class, $this->className))
 			throw new Exception("Class " . $class . " already in list");
-		$this->className[] = $class;
+		if ($class != "")
+			$this->className[] = $class;
 	}
 
 	/**
@@ -50,6 +52,12 @@ class Component {
 		if ($str != "")
 			return ("class='" . trim($str) . "'");
 		return "";
+	}
+
+	public function element($element = null) {
+		if ($element != null)
+			$this->element = $element;
+		return ($this->element);
 	}
 
 	// public function render() {
