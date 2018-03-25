@@ -68,7 +68,7 @@ class Router {
 		if ($page != null)//Not Found
 		{
 			http_response_code(200);
-			$page->render();
+			$page->render_page();
 		}
 		else
 			http_response_code(404);

@@ -3,7 +3,10 @@
 * 	----------
 *	@file
 */
-abstract class Page {
+
+require_once ("Module.php");
+
+abstract class Page extends Module {
 	protected $_title = "";
 	protected $_module = [];
 	protected $_view = "";
@@ -20,7 +23,7 @@ abstract class Page {
 	*/
 	public function __construct(String $title = "", String $view = "") {
 		$this->_title = $title;
-		$this->_view = $view;
+		parent::__construct($view);
 		$conf = Setting::main();
 		try {
 			foreach($conf['script_start'] as $script)
@@ -58,16 +61,14 @@ abstract class Page {
 		echo "</html>";
 	}
 
-	public function render_view() {
-		$view = "pages/View/" . $this->_view;
-		require_once ($view);
-	}
-
 	/** render
 	*	Renderize all, head, body and foot one by one
 	*/
-	public function render() {
+	public function render_page() {
+		$this->render();
+
 		$this->head();
+		echo $this->content();
 		$this->body();
 		$this->foot();
 	}

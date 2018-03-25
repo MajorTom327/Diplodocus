@@ -1,7 +1,7 @@
 <?php
 class Navbar extends Module {
 	public function __construct() {
-		$this->_view = "Navbar";
+		$this->view("Module/Navbar");
+		// $this->_view = "Module/Navbar";
 	}
-	
 }

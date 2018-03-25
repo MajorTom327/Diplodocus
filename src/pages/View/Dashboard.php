@@ -1,2 +1,4 @@
-<div class="lol">
-	Test </div>
+<?= $this->_module['Navbar']->render() ?>
+<div class="bg-danger">
+	Test
+</div>
