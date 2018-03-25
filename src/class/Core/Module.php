@@ -29,6 +29,15 @@ class Module {
 		return ($this->rendered_module);
 	}
 
+
+	/**
+	 * Conditional rendering
+	 */
+	public function ifRender($condition) {
+		if ($condition)
+			return ($this->render());
+		return "";
+	}
 	/**
 	 * Render View from default path
 	 * default path -> pages/View

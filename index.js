@@ -1,4 +1,4 @@
-const validator = require('html-validator')
+const validator = require('html-validator');
 const options = {
  url: 'http://localhost:8080',
  format: 'text',
