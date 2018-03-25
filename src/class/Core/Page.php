@@ -58,6 +58,11 @@ abstract class Page {
 		echo "</html>";
 	}
 
+	public function render_view() {
+		$view = "pages/View/" . $this->_view;
+		require_once ($view);
+	}
+
 	/** render
 	*	Renderize all, head, body and foot one by one
 	*/

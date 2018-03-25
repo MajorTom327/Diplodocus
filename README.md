@@ -20,7 +20,7 @@ _ProTip:_ Adding an alias in your bashrc or zshrc (or other) can be usefull. min
 ## Documentation
 Generating the documentation is easy. You must have [Doxygen](doxygen.org/) installed.
 After installing, enter this command:
-> $> cd ./src ; doxygen 
+> $> cd ./src ; doxygen .doxygen
 
 Now you can see it at: [http://localhost:8080/doc](http://localhost:8080/doc)
 
