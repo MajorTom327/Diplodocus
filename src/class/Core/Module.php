@@ -1,4 +1,8 @@
 <?php
+/** Diplodocus
+* 	----------
+*	@file
+*/
 class Module {
 	protected $_view = "";
 	protected $rendered = false;
