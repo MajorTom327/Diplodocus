@@ -11,7 +11,7 @@ class Module {
 	public function render() {
 		self::$rendered = false;
 		ob_start();
-			//RENDERING VIEW
+			//RENDERING VIEW HERE
 			self::$content = ob_get_contents();
 		ob_end_clean();
 		self::$rendered = true;
