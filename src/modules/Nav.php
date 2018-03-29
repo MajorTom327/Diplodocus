@@ -8,21 +8,22 @@ class Nav extends Module {
 	protected $menu = null;
 
 	public function __construct() {
-		$this->menu = new Navbar();
 		$this->view("Module/Navbar");
-		$this->menu->addItem(new Link(new Icon("fas fa-home"), "/dashboard"));
-		$this->menu->addLink(new Text("Home"), "/dashboard");
-		$this->menu->addLink(new Text("Empty"), "/");
-		$this->menu->addLink(new Text("404"), "/404");
+		$this->menu = new Container();
+		$this->menu->add(new Navbar());
+
+		$this->menu->get(0)->addItem(new Link(new Icon("fas fa-home"), "/dashboard"));
+		$this->menu->get(0)->addLink(new Text("Home"), "/dashboard");
+		$this->menu->get(0)->addLink(new Text("Empty"), "/");
+		$this->menu->get(0)->addLink(new Text("404"), "/404");
+
+		$this->menu->add(new Button(new Text("TEST")));
 		// $this->menu->addItem(new Button(new Text("Test"), "danger"));
 	}
 
 	public function render() {
 		ob_start();
-		$t = new Button(new Icon("fas fa-home"), "btn-success");
-		// $t->addClass("btn-danger");
-		echo $t->render();
-		$this->menu->render();
+		echo $this->menu->render();
 		$content = ob_get_contents();
 		ob_end_clean();
 		return ($content);

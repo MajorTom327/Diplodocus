@@ -14,6 +14,8 @@ class Button extends Component {
 	}
 
 	public function render() {
+		if ($this->class() == "")
+			$this->class('btn-default');
 		echo "<div " . $this->class() . " " . $this->id() . ">";
 		echo $this->element->render();
 		echo "</div>";

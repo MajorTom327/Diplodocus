@@ -15,6 +15,7 @@ require_once ("class/Core/Page.php");
 require_once ("class/Core/Module.php");
 require_once ("class/Core/Component.php");
 
+require_once ("class/Container.php");
 require_once ("class/Text.php");
 require_once ("class/Button.php");
 require_once ("class/Link.php");

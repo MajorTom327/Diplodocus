@@ -3,12 +3,14 @@ $main: #3498db;
 $secondary: #808080;
 
 $color: (
+	default: #ffffff,
 	success: #2ecc71,
 	warning: #e67e22,
 	danger: #e74c3c
 );
 
 $type: [
+"default",
 "success",
 "warning",
 "danger"
