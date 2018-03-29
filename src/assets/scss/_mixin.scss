@@ -1,0 +1,8 @@
+@mixin button($class) {
+	&.btn-#{$class} {
+		background-color: map-get($color, $class);
+		&:hover {
+			background-color: darken(map-get($color, $class), map-get($common, 'color-change'));
+		}
+	}
+}

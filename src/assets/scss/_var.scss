@@ -1,0 +1,23 @@
+//COLORS
+$main: #3498db;
+$secondary: #808080;
+
+$color: (
+	success: #2ecc71,
+	warning: #e67e22,
+	danger: #e74c3c
+);
+
+$type: [
+"success",
+"warning",
+"danger"
+];
+$nb_type: length($type);
+
+$common: (
+	radius: 4px,
+	color-change: 8%,
+	padding: 8px,
+	margin: 8px
+	);

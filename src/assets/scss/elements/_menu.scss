@@ -1,0 +1,16 @@
+ul {
+	&.nav, &.unstyled-list {
+		list-style: none;
+		padding: map-get($common, 'padding');
+		li {
+			display: inline;
+			padding: map-get($common, 'padding');
+			&.nav-item {
+			}
+			.nav-link {
+				// color: $default
+				text-decoration: none;
+			}
+		}
+	}
+}

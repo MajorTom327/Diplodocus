@@ -20,6 +20,9 @@ class Navbar extends Component {
 		// $this->addLink("Home", "/dashboard");
 	}
 
+	public function addItem($item) {
+		$this->menu->addItem(new Item($item));
+	}
 	/**
 	 * Add link to navbar
 	 */

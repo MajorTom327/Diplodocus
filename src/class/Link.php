@@ -6,6 +6,7 @@
 
 class Link extends Component {
 	protected $_text = "";
+	protected $_item = null;
 	protected $_url = "";
 
 	/**
@@ -20,7 +21,9 @@ class Link extends Component {
 	 * Rendering the link
 	 */
 	public function render() {
-		return "<a href='" . $this->url() . "' " . $this->id() . " " . $this->class() . "'>" . $this->text() . "</a>";
+		if($this->item === null)
+			return "<a href='" . $this->url() . "' " . $this->id() . " " . $this->class() . "'>" . $this->text() . "</a>";
+		return "<a href='" . $this->url() . "' " . $this->id() . " " . $this->class() . "'>" . $this->item->render() . "</a>";
 	}
 
 	/**

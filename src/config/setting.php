@@ -9,11 +9,11 @@ $config = [
 	"main" => [
 		"sitename" => "Site Name",
 		"script" => [
-			"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			"https://use.fontawesome.com/releases/v5.0.9/js/all.js"
 		],
 		"script_start" => [],
 		"style" => [
-			"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			"assets/css/main.css",
 			]
 		],
 	];

@@ -1,0 +1,12 @@
+.btn {
+	border: 1px solid $secondary;
+	border-radius: map-get($common, 'radius');
+	text-align: center;
+	padding: map-get($common, 'padding');
+	margin: map-get($common, 'margin');
+
+	@for $i from 1 through $nb_type {
+		@include button(nth($type, $i));
+	}
+
+}

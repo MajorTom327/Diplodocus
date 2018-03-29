@@ -18,6 +18,7 @@ require_once ("class/Core/Component.php");
 require_once ("class/Text.php");
 require_once ("class/Button.php");
 require_once ("class/Link.php");
+require_once ("class/Icon.php");
 require_once ("class/Item.php");
 require_once ("class/Menu.php");
 require_once ("class/Navbar.php");
