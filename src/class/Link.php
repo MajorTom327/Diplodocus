@@ -12,18 +12,24 @@ class Link extends Component {
 	/**
 	 * Generate a link balise
 	 */
-	public function __construct($text, $url) {
-		$this->text($text);
+	public function __construct($item, $url, $text = "") {
+		$this->item($item);
 		$this->url($url);
+		$this->text($text);
 	}
 
 	/**
 	 * Rendering the link
 	 */
 	public function render() {
-		if($this->item === null)
-			return "<a href='" . $this->url() . "' " . $this->id() . " " . $this->class() . "'>" . $this->text() . "</a>";
-		return "<a href='" . $this->url() . "' " . $this->id() . " " . $this->class() . "'>" . $this->item->render() . "</a>";
+		try {
+			if ($this->item() === null)
+				throw new Exception("Item is null");
+			return "<a href=\"" . $this->url() . "\" " . $this->id() . " " . $this->class() . ">" . $this->item()->render() . "</a>";
+		}
+		catch (Exception $e) {
+			return "<a href=\"" . $this->url() . "\" " . $this->id() . " " . $this->class() . ">" . $this->text() . "</a>";
+		}
 	}
 
 	/**
@@ -33,6 +39,15 @@ class Link extends Component {
 		if ($value != "")
 			$this->_text = $value;
 		return ($this->_text);
+	}
+
+	/**
+	 * Setter and getter for the text value
+	 */
+	public function item($value = "") {
+		if ($value != "")
+			$this->_item = $value;
+		return ($this->_item);
 	}
 
 	/**

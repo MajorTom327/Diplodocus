@@ -40,8 +40,8 @@ abstract class Page extends Module {
 	*	Generate the head with script and stylesheet
 	*/
 	public function head() {
-		echo "<!DOCTYPE><html><head>";
-		echo "<meta charset='utf8'></meta>";
+		echo "<!DOCTYPE html><html><head>";
+		echo "<meta charset='utf-8'>";
 		echo "<title>" . $this->_title . " | "  . Setting::main()['sitename']. "</title>";
 		foreach (static::$_style as $css) self::render_style($css);
 		foreach (static::$_script as $script) self::render_script($script);
@@ -103,7 +103,7 @@ abstract class Page extends Module {
 	*	rendering a script beacon
 	*/
 	private static function render_script($script) {
-		echo "<script type='text/javascript' src='$script' async></script>";
+		echo "<script src='$script' async></script>";
 	}
 	/** render_style
 	*	rendering a style beacon

@@ -1,8 +1,12 @@
 @mixin button($class) {
 	&.btn-#{$class} {
-		background-color: map-get($color, $class);
+		background-color: map-get($color, $class) !important;
 		&:hover {
-			background-color: darken(map-get($color, $class), map-get($common, 'color-change'));
+			background-color: darken(map-get($color, $class), map-get($common, 'color-change')) !important;
+			cursor: pointer;
+		}
+		&:active {
+			box-shadow: inset 0 map-get($btn, 'shadow-size') map-get($btn, 'shadow-blur') #000000 ;
 		}
 	}
 }

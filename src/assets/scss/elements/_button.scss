@@ -4,7 +4,7 @@
 	text-align: center;
 	padding: map-get($common, 'padding');
 	margin: map-get($common, 'margin');
-
+	display: inline-block;
 	@for $i from 1 through $nb_type {
 		@include button(nth($type, $i));
 	}
