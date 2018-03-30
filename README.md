@@ -31,3 +31,4 @@ We use somes libraries tha is usefull for some case, the list is here:
 | ------- | -------------- | ------- | ------- |
 | html-validator | [https://github.com/zrrrzzt/html-validator](https://github.com/zrrrzzt/html-validator) | MIT | Check W3C valid html generated |
 | node-sass | [https://github.com/sass/node-sass](https://github.com/sass/node-sass) | MIT | Compile scss to css |
+| FontAwesome | [https://github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome) | Unlicensed | Add icon from font |

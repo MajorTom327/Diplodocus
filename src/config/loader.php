@@ -26,4 +26,5 @@ require_once ("class/Navbar.php");
 
 
 require_once ("modules/Nav.php");
+require_once ("modules/Cam.php");
 require_once ("config/routes.php");

@@ -2,8 +2,10 @@
 class Container extends Component {
 	private $_elements = [];
 
-	public function __construct(){
+	public function __construct($is_main = false){
 		$this->addClass("container");
+		if ($is_main)
+			$this->addClass("main-container");
 	}
 
 	public function add($item) {
