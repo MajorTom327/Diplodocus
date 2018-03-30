@@ -8,6 +8,7 @@ class Container extends Component {
 
 	public function add($item) {
 		$this->_elements[] = $item;
+		return array_search($item, $this->_elements);
 	}
 
 	public function render() {

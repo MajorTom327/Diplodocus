@@ -30,3 +30,4 @@ We use somes libraries tha is usefull for some case, the list is here:
 | Library | Link to github | Licence | Purpose |
 | ------- | -------------- | ------- | ------- |
 | html-validator | [https://github.com/zrrrzzt/html-validator](https://github.com/zrrrzzt/html-validator) | MIT | Check W3C valid html generated |
+| node-sass | [https://github.com/sass/node-sass](https://github.com/sass/node-sass) | MIT | Compile scss to css |

@@ -17,7 +17,8 @@ class Nav extends Module {
 		$this->menu->get(0)->addLink(new Text("Empty"), "/");
 		$this->menu->get(0)->addLink(new Text("404"), "/404");
 
-		$this->menu->add(new Button(new Text("TEST")));
+		// $this->menu->add(new Button(new Text("TEST Gauche"), "btn-success"));
+		// $this->menu->add(new Button(new Text("TEST Droite"), "btn-danger"));
 		// $this->menu->addItem(new Button(new Text("Test"), "danger"));
 	}
 
