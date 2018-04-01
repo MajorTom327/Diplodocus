@@ -1,5 +1,12 @@
 <?php
-class Container extends Component {
+/** Diplodocus
+* 	----------
+*	@file
+*/
+
+namespace Components;
+
+class Container extends \Core\Component {
 
 	public function __construct($is_main = false){
 		$this->balise = "div";

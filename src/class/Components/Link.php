@@ -4,7 +4,9 @@
 *	@file
 */
 
-class Link extends Component {
+namespace Components;
+
+class Link extends \Core\Component {
 	protected $_text = "";
 	protected $_item = null;
 	protected $_url = "";

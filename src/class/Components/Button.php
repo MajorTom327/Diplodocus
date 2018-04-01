@@ -4,7 +4,9 @@
 *	@file
 */
 
-class Button extends Component {
+namespace Components;
+
+class Button extends \Core\Component {
 
 	public function __construct($element, $type = "") {
 		$this->element = $element;

@@ -1,5 +1,12 @@
 <?php
-class Icon extends Component {
+/** Diplodocus
+* 	----------
+*	@file
+*/
+
+namespace Components;
+
+class Icon extends \Core\Component {
 	public function __construct($icon = "") {
 		$this->balise = "i";
 		$x = explode(' ', $icon);

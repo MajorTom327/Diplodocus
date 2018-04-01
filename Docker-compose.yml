@@ -5,15 +5,31 @@ services:
     volumes:
     - "./src/:/var/www/html"
     links:
-    - mysql
+    - db
     ports:
     - "80:80"
     privileged: true
 
-  mysql:
+  db:
     image: mysql:latest
+    restart: always
     volumes:
     - "./data/:/var/lib/mysql"
     environment:
-        MYSQL_ROOT_PASSWORD: passroot
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_PASSWORD=toor
+    ports:
+    - "3306:3306"
     privileged: true
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - PMA_HOST=172.18.0.1
+    links:
+      - db
+    restart: always
+    privileged: true
+    ports:
+      - "9999:80"

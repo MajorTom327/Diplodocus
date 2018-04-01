@@ -4,7 +4,9 @@
 *	@file
 */
 
-class Item extends Component {
+namespace Components;
+
+class Item extends \Core\Component {
 	protected $element = null;
 
 	public function __construct($element) {

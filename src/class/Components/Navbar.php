@@ -4,7 +4,9 @@
 *	@file
 */
 
-class Navbar extends Component {
+namespace Components;
+
+class Navbar extends \Core\Component {
 
 	/**
 	 * Setting up a navbar

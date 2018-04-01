@@ -9,13 +9,13 @@ class Nav extends Module {
 
 	public function __construct() {
 		$this->view("Module/Navbar");
-		$this->element = new Container();
-		$this->element->add(new Navbar());
+		$this->element = new \Components\Container();
+		$this->element->add(new \Components\Navbar());
 
-		$this->element->get(0)->addItem(new Link(new Icon("fas fa-home"), "/dashboard"));
-		$this->element->get(0)->addLink(new Text("Home"), "/dashboard");
-		$this->element->get(0)->addLink(new Text("Empty"), "/");
-		$this->element->get(0)->addLink(new Text("404"), "/404");
+		$this->element->get(0)->addItem(new \Components\Link(new \Components\Icon("fas fa-home"), "/dashboard"));
+		$this->element->get(0)->addLink(new \Components\Text("Home"), "/dashboard");
+		$this->element->get(0)->addLink(new \Components\Text("Empty"), "/");
+		$this->element->get(0)->addLink(new \Components\Text("404"), "/404");
 
 		// $this->element->add(new Button(new Text("TEST Gauche"), "btn-success"));
 		// $this->element->add(new Button(new Text("TEST Droite"), "btn-danger"));

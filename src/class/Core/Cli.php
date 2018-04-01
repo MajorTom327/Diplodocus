@@ -3,6 +3,8 @@
 * 	----------
 *	@file
 */
+
+namespace Core;
 class Cli
 {
 	private static $_prompt = "\033[90m$> \033[0m";

@@ -1,3 +1,3 @@
 <?php
-	require ("config/loader.php");
-	Cli::loop();
+	require_once ("config/loader.php");
+	\Core\Cli::loop();

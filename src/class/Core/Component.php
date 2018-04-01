@@ -3,6 +3,7 @@
 * 	----------
 *	@file
 */
+namespace Core;
 
 class Component {
 	protected $className = [];///Lists of class

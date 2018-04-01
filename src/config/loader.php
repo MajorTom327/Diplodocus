@@ -15,14 +15,14 @@ require_once ("class/Core/Page.php");
 require_once ("class/Core/Module.php");
 require_once ("class/Core/Component.php");
 
-require_once ("class/Container.php");
-require_once ("class/Text.php");
-require_once ("class/Button.php");
-require_once ("class/Link.php");
-require_once ("class/Icon.php");
-require_once ("class/Item.php");
-require_once ("class/Menu.php");
-require_once ("class/Navbar.php");
+require_once ("class/Components/Container.php");
+require_once ("class/Components/Text.php");
+require_once ("class/Components/Button.php");
+require_once ("class/Components/Link.php");
+require_once ("class/Components/Icon.php");
+require_once ("class/Components/Item.php");
+require_once ("class/Components/Menu.php");
+require_once ("class/Components/Navbar.php");
 
 
 require_once ("modules/Nav.php");

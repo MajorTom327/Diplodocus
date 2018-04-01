@@ -15,5 +15,5 @@ $config = [
 		"style" => [
 			"assets/css/main.css",
 			]
-		],
+		]
 	];

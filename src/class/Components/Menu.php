@@ -4,7 +4,9 @@
 *	@file
 */
 
-class Menu extends Component {
+namespace Components;
+
+class Menu extends \Core\Component {
 	protected $menu = [];
 
 	public function __construct() {
