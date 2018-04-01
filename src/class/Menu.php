@@ -7,7 +7,9 @@
 class Menu extends Component {
 	protected $menu = [];
 
-	public function __construct() {}
+	public function __construct() {
+		$this->balise = "ul";
+	}
 
 	/**
 	 * Menu Ul

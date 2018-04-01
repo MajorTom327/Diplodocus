@@ -14,12 +14,6 @@ class Component {
 	protected $text = "";
 
 	public function render() {
-		$re = '/(?:<?)([\w-]*)(?:>?)/';
-		$rendered = "";
-		
-		$balise = $this->balise;
-		preg_match_all($re, $balise, $matches, PREG_SET_ORDER, 0);
-
 		$balise = $matches[0][1];
 		ob_start();
 		echo $this->getBalise()[0];
@@ -96,14 +90,4 @@ class Component {
 			$this->element = $element;
 		return ($this->element);
 	}
-
-	// public function render() {
-	// 	$text = "";
-	// 	ob_start();
-	// 		echo "<" . $this->balise . " " . $this->class() . " " . $this->id() . ">";
-	// 		echo "</" . $this->balise . ">";
-	// 		$text = ob_get_contents();
-	// 	ob_end_clean();
-	// 	return ($text);
-	// }
 }
