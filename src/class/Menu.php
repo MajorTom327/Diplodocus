@@ -22,11 +22,11 @@ class Menu extends Component {
 	public function render() {
 		$ret = "";
 		ob_start();
-			echo "<ul " . $this->class() . " " . $this->id() . ">";
+			echo $this->getBalise()[0];
 			foreach ($this->menu as $item) {
 				echo $item->render();
 			}
-			echo "</ul>";
+			echo $this->getBalise()[1];
 			$ret = ob_get_contents();
 		ob_end_clean();
 		return ($ret);

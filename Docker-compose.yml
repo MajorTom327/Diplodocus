@@ -7,7 +7,7 @@ services:
     links:
     - mysql
     ports:
-    - "8080:80"
+    - "80:80"
     privileged: true
 
   mysql:

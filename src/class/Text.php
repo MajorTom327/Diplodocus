@@ -5,7 +5,6 @@
 */
 
 class Text extends Component {
-	protected $text = "";
 
 	public function __construct($text) {
 		$this->text = $text;

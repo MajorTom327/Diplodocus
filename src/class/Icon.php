@@ -1,12 +1,13 @@
 <?php
 class Icon extends Component {
 	public function __construct($icon = "") {
+		$this->balise = "i";
 		$x = explode(' ', $icon);
 		forEach($x as $class)
 			$this->addClass($class);
 	}
 
 	public function render() {
-		return ("<i " . $this->id() . " " . $this->class() . "></i>");
+		return parent::render();
 	}
 }

@@ -11,9 +11,12 @@ abstract class Page extends Module {
 	protected $_module = [];
 	protected $_view = "";
 
+	public $type = "html";
+
 	protected static $_script = [];
 	protected static $_end_script = [];
 	protected static $_style = [];
+
 
 
 	/** Constructor
@@ -61,10 +64,29 @@ abstract class Page extends Module {
 		echo "</html>";
 	}
 
+
+	public function header() {
+		switch ($this->type) {
+			case "html":
+			header('Content-Type: text/html');
+			break;
+			case "text":
+			header('Content-Type: text/plain');
+			break;
+			case "json":
+			header('Content-Type: application/json');
+			break;
+			case "pdf":
+			header('Content-Type: application/pdf');
+			header('Content-Disposition: attachment; filename="' . $this->_title . '"');
+			break;
+		}
+	}
 	/** render
 	*	Renderize all, head, body and foot one by one
 	*/
 	public function render_page() {
+		$this->header();
 		$this->render();
 
 		$this->head();

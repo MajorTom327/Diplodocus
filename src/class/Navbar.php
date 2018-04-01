@@ -5,14 +5,14 @@
 */
 
 class Navbar extends Component {
-	protected $menu = null;
 
 	/**
 	 * Setting up a navbar
 	 */
 	public function __construct() {
-		$this->menu = new Menu();
-		$this->menu->addClass("nav");
+		$this->balise = "nav";
+		$this->element = new Menu();
+		$this->element->addClass("nav");
 		$this->addClass("navbar");
 		$this->addClass("navbar-expand-sm");
 		$this->addClass("bg-light");
@@ -21,7 +21,7 @@ class Navbar extends Component {
 	}
 
 	public function addItem($item) {
-		$this->menu->addItem(new Item($item));
+		$this->element->addItem(new Item($item));
 	}
 	/**
 	 * Add link to navbar
@@ -30,21 +30,22 @@ class Navbar extends Component {
 		$x = new Item(new Link($text, $url));
 		$x->addClass("nav-item");
 		$x->element()->addClass("nav-link");
-		$this->menu->addItem($x);
+		$this->element->addItem($x);
 	}
 
 	/**
 	 * rendering the nav
 	 */
 	public function render() {
-		echo "<nav " . $this->class() . " " . $this->id() . ">";
-		echo $this->menu->render();
-		echo "</nav>";
+		echo parent::render();
+		// echo "<nav " . $this->class() . " " . $this->id() . ">";
+		// echo $this->element->render();
+		// echo "</nav>";
 	}
 
 	public function menu($menu = null) {
 		if ($menu != null)
-			$this->menu = $menu;
-		return ($this->menu);
+			$this->element = $menu;
+		return ($this->element);
 	}
 }

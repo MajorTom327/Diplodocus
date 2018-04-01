@@ -9,21 +9,8 @@ class Item extends Component {
 
 	public function __construct($element) {
 		// $this->element = new Link($text, $url);
+		$this->balise = "li";
 		$this->element = $element;
-	}
-
-	/**
-	 * Render a list item
-	 */
-	public function render() {
-		$str = "";
-		ob_start();
-			echo "<li " . $this->class() . " " . $this->id() . ">";
-			echo $this->element->render();
-			echo "</li>";
-		$str = ob_get_contents();
-		ob_end_clean();
-		return $str;
 	}
 
 	/**
