@@ -43,7 +43,7 @@
          foreach ($update_files as $file) {
              $is_in = false;
              foreach ($data as $el) {
-                 if ($el[0]['filename'] == $file) {
+                 if ($el['filename'] == $file) {
                      $is_in = true;
                      break;
                 }

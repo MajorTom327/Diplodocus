@@ -56,7 +56,7 @@
 	   $value = "NULL, ";
 	   foreach($data as $key => $val){
 		   $keys .= "`" . $key. "`, ";
-		   $value .= $val   . ", ";
+		   $value .= "'" .$val   . "', ";
 	   }
 	   $keys .= "`created_at`, `updated_at`";
 	   $value .= "CURRENT_TIMESTAMP, NULL";
@@ -78,10 +78,12 @@
 		if ($table == "")
 		   return (false);
 		$query = "SELECT * FROM `" . $table . "` WHERE " . $this->setEqual($data['where']);
+		// var_dump($data);
+		// var_dump($query);
 		return (\Core\Database::query($query));
 	}
 	protected function setEqual($data) {
-		$query = "`" . $data['key'] . "` = " . $data['value'];
+		$query = "`" . $data['key'] . "` = '" . $data['value'] . "'";
 		return ($query);
 	}
  }

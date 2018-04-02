@@ -1,0 +1,17 @@
+[
+    {
+        "type": "create-table",
+        "name":"settings",
+        "param":
+        [
+            {
+                "name":"key_setting",
+                "config":["text", "not", "null"]
+            },
+            {
+                "name":"value",
+                "config": ["text", "not", "null"]
+            }
+        ]
+    }
+]

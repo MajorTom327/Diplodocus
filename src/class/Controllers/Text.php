@@ -15,14 +15,14 @@ class Text extends \Core\Table {
 	}
 	
 	public function getLanguage($text = "", $lang = "") {
-		$ret = $this->get(["where" => ["key" => "text_default", "value" => "'$text'"]]);
-		if (count($ret) == 0 || $ret == false) {
+		$ret = self::get(["where" => ["key" => "text_default", "value" => "$text"]]);
+		if ($ret == false || count($ret) == 0) {
 			$this->insert([
 				"text_default" => "'$text'",
 				"langue" => "'default'",
 				"value" => "'$text'"
 				]);
-			$ret = $this->get(["where" => ["key" => "text_default", "value" => "'$text'"]]);
+			$ret = $this->get(["where" => ["key" => "text_default", "value" => "$text"]]);
 		}
 		if ($lang != "") {
 			$t = null;

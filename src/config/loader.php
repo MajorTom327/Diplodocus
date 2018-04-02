@@ -6,6 +6,7 @@
  *	@author vthomas
 */
 
+session_start();
 /* LOADING KERNEL */
 require_once ("class/Core/Cli.php");
 require_once ("class/Core/Setting.php");
@@ -15,7 +16,13 @@ require_once ("class/Core/Setting.php");
 require_once ("class/Core/Table.php");
 require_once ("class/Core/Database.php");
 \Core\Database::instantiate();
-// \Core\Database::update();
+\Core\Database::update();
+
+
+require_once ("class/Controllers/Setting.php");
+
+$ex_setting = new \Controllers\Setting();
+$ex_setting->set("lang", "fr");
 
 /* LOADING CORE */
 require_once ("class/Core/Route.php");
@@ -37,7 +44,6 @@ require_once ("class/Components/Icon.php");
 require_once ("class/Components/Item.php");
 require_once ("class/Components/Menu.php");
 require_once ("class/Components/Navbar.php");
-
 
 /* LOADING MODULES PAGE */
 require_once ("modules/Nav.php");

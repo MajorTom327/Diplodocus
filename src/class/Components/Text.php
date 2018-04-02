@@ -19,6 +19,9 @@ class Text extends \Core\Component {
 
 	public function getLanguage() {
 		$t = new \Controllers\Text();
-		return ($t->getLanguage($this->text, "en"));
+		$lang = "";
+		if (isset($_SESSION['lang']))
+			$lang = $_SESSION['lang'];
+		return ($t->getLanguage($this->text, $lang));
 	}
 }

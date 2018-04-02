@@ -25,7 +25,7 @@ abstract class Page extends Module {
 	*	@param $title is a string that set the Site title
 	*	@param $view is the string name of the view file
 	*/
-	public function __construct(String $title = "", String $view = "") {
+	public function __construct($title = "", $view = "") {
 		$this->_title = $title;
 		parent::__construct($view);
 		$conf = \Core\Setting::main();
@@ -44,7 +44,8 @@ abstract class Page extends Module {
 	*	Generate the head with script and stylesheet
 	*/
 	public function head() {
-		$lang = \Core\Setting::main()['lang'];
+		$lang = (new \Controllers\Setting())->get("lang");
+		// $lang = \Core\Setting::main()['lang'];
 		echo "<!DOCTYPE html><html lang='$lang'><head>";
 		echo "<meta charset='utf-8'>";
 		echo "<title>" . $this->_title . " | "  . \Core\Setting::main()['sitename']. "</title>";
