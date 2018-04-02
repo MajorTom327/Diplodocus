@@ -1,0 +1,31 @@
+[
+    {
+        "type": "create_table",
+        "name":"translate_text",
+        "param":
+        [
+            {
+                "name":"text_default",
+                "config":["text", "not", "null"]
+            },
+            {
+                "name": "langue",
+                "config": ["text", "not", "null"]
+            },
+            {
+                "name":"value",
+                "config": ["text", "not", "null"]
+            }
+        ]
+    },
+    {
+        "type": "create_table",
+        "name": "update_triceratops",
+        "param": [
+            {
+                "name": "filename",
+                "config": ["text", "not", "null"]
+            }
+        ]
+    }
+]

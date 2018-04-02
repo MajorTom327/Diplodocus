@@ -2,9 +2,9 @@
 $config = [
 	"database" => [
 		"user" => "root",
-		"pass" => "root",
+		"pass" => "toor",
 		"base" => "base",
-		"host" => "localhost"
+		"host" => "172.18.0.1"
 		],
 	"main" => [
 		"sitename" => "Site Name",
@@ -14,6 +14,7 @@ $config = [
 		"script_start" => [],
 		"style" => [
 			"assets/css/main.css",
-			]
+		],
+		"update-dir" => "./update"
 		]
 	];

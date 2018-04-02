@@ -1,7 +1,7 @@
 version: '2'
 services:
   apache:
-    image: php:apache
+    build: .
     volumes:
     - "./src/:/var/www/html"
     links:

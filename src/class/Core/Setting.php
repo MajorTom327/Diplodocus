@@ -4,6 +4,7 @@
 *	@file
 */
 
+namespace Core;
 /** Setting
  * Generate the setting, handle it and all about setting
  */

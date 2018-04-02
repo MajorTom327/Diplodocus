@@ -6,8 +6,28 @@
 */
 require_once ("class/Core/Cli.php");
 require_once ("class/Core/Setting.php");
-Setting::load();
+\Core\Setting::load();
 
+require_once ("class/Core/Database.php");
+\Core\Database::instantiate();
+
+$table = [
+    'name' => 'translate_text',
+    'param' => [
+        [
+            'name' => "id_default",
+            'config' => [
+                "int",
+                "null"
+            ]
+        ]
+    ]
+];
+// die();
+
+// \Core\Database::createTable(json_encode($table));
+\Core\Database::update();
+die();
 require_once ("class/Core/Route.php");
 require_once ("class/Core/Router.php");
 require_once ("class/Core/Page.php");

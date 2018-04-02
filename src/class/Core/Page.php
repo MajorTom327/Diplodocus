@@ -27,7 +27,7 @@ abstract class Page extends Module {
 	public function __construct(String $title = "", String $view = "") {
 		$this->_title = $title;
 		parent::__construct($view);
-		$conf = Setting::main();
+		$conf = \Core\Setting::main();
 		try {
 			foreach($conf['script_start'] as $script)
 				self::add_script($script, false);
@@ -45,7 +45,7 @@ abstract class Page extends Module {
 	public function head() {
 		echo "<!DOCTYPE html><html><head>";
 		echo "<meta charset='utf-8'>";
-		echo "<title>" . $this->_title . " | "  . Setting::main()['sitename']. "</title>";
+		echo "<title>" . $this->_title . " | "  . \Core\Setting::main()['sitename']. "</title>";
 		foreach (static::$_style as $css) self::render_style($css);
 		foreach (static::$_script as $script) self::render_script($script);
 		echo "</head>";

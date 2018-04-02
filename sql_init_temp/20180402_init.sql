@@ -1,0 +1,2 @@
+CREATE DATABASE `base`;
+CREATE TABLE `base`.`translate_text` ( `id` INT NOT NULL AUTO_INCREMENT , `id_default` INT NULL , `langue` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
