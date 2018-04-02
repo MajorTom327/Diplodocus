@@ -1,6 +1,7 @@
 <?php
 /** Diplodocus
 * 	----------
+*	@author vthomas
 *	@file
 */
 

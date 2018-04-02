@@ -3,6 +3,7 @@
  * Diplodocus
  * ----------
  * @file
+ *	@author vthomas
  */
 
  namespace Core;

@@ -1,9 +1,9 @@
 <?php
 /** Diplodocus
-* 	----------
-*	@file
+ * 	----------
+ *	@file
+ *	@author vthomas
 */
-// require_once ("Route.php");
 
 /** Router
  * Router is the class who is routing all query

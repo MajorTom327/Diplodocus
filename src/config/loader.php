@@ -1,8 +1,9 @@
 <?php
 /** Diplodocus
-* 	----------
-*	@file
-*	@desc Load all important file and setup from settings
+ * 	----------
+ *	@file
+ *	@desc Load all important file and setup from settings
+ *	@author vthomas
 */
 
 /* LOADING KERNEL */

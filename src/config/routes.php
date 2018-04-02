@@ -1,8 +1,9 @@
 <?php
 /** Diplodocus
-* 	----------
-*	@file
-*	@desc List files
+ * 	----------
+ *	@file
+ *	@desc List files
+ *	@author vthomas
 */
 
 require_once ("class/Core/Route.php");

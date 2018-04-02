@@ -1,7 +1,8 @@
 <?php
 /** Diplodocus
-* 	----------
-*	@file
+ * 	----------
+ *	@file
+ *	@author vthomas
 */
 namespace Core;
 
