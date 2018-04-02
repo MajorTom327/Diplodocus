@@ -4,7 +4,8 @@ $config = [
 		"user" => "root",
 		"pass" => "toor",
 		"base" => "base",
-		"host" => "172.18.0.1"
+		"host" => "172.18.0.1",
+		"update_table" => "update_triceratops"
 		],
 	"main" => [
 		"sitename" => "Site Name",
