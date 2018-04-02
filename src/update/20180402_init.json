@@ -1,6 +1,6 @@
 [
     {
-        "type": "create_table",
+        "type": "create-table",
         "name":"translate_text",
         "param":
         [
@@ -19,7 +19,7 @@
         ]
     },
     {
-        "type": "create_table",
+        "type": "create-table",
         "name": "update_triceratops",
         "param": [
             {

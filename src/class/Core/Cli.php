@@ -36,6 +36,9 @@ class Cli
 			case "clear":
 				echo "\033[2J\033[0;0H";
 				break;
+			case "update":
+				\Core\Database::update();
+				break;
 			default:
 				eval($command);
 		}

@@ -22,8 +22,10 @@
          }
      }
 
+     /**
+      * Update database from json configuration
+      */
      public static function update() {
-        //  \Core\Cli::cli_only();
          $update_files = scandir(\Core\Setting::main()['update-dir']);
          $update_files = array_reverse(array_filter($update_files, function ($k) {
              return (substr($k, 0, 1) != ".");
@@ -31,14 +33,12 @@
         //  array_reverse($update_files);
 
         $data = self::query("SELECT * FROM `update_triceratops`");
-        if ($data === false)
-        {
-            echo "CREATE TABLE";
+        if ($data === false){
+            echo "CREATE TABLE" . PHP_EOL;
             self::createTable('{"type":"create_table","name":"update_triceratops","param":[{"name": "filename","config": ["text", "not", "null"]}]}');
             $data = self::query("SELECT * FROM `" . \Core\Setting::database()['update_table'] . "`");
         }
          foreach ($update_files as $file) {
-
              $is_in = false;
              foreach ($data as $el) {
                  if ($el[0]['filename'] == $file) {
@@ -47,15 +47,30 @@
                 }
             }
             if ($is_in) break;
-            $x = file_get_contents(\Core\Setting::main()['update-dir'] . "/" . $file);
+            $x = json_decode(file_get_contents(\Core\Setting::main()['update-dir'] . "/" . $file), true);
+            if ($x === NULL)
+                continue;
+            foreach ($x as $cmd) {
+                switch ($cmd["type"]) {
+                    case "create-table":
+                        self::createTable($cmd, false);
+                        break;
+                    case "drop-table":
+                        self::dropTable($cmd['name']);
+                        break;
+                }
+            }
             self::insert(\Core\Setting::database()['update_table'], ["filename" => '"'.$file.'"']);
-            //  echo $x;
-            //  var_dump($file);
          }
      }
 
-     public static function createTable($config) {
-         $config = json_decode($config, true);
+     /**
+      * Create a new table from JSON data or maybe from array instance (json_decode)
+      * @param $config Containe the configuration in json format or array instance
+      * @param $is_encoded default true, is the type of the config payload. If true it's a JSON. Else, array
+      */
+     public static function createTable($config, $is_encoded = true) {
+        $config = ($is_encoded) ? json_decode($config, true) : $config;
         $query = "CREATE TABLE `" . \Core\Setting::database()['base'] . "`.`" . $config['name'] . "` (";
         $query .= "`id` INT NOT NULL AUTO_INCREMENT,";
         foreach ($config['param'] as $param) {
@@ -69,6 +84,11 @@
         $query .= "`updated_at` DATETIME ON UPDATE CURRENT_TIMESTAMP,";
         $query .= "PRIMARY KEY (`id`)) ENGINE = InnoDB;";
         self::query($query);
+     }
+
+     public static function dropTable($table) {
+         $query = "DROP TABLE `" . $table . "`";
+         return (self::query($query));
      }
 
      /**
@@ -92,7 +112,7 @@
      /**
       * Querying the database
       */
-     protected static function query(String $query) {
+     public static function query($query) {
         self::instantiate();
         $i = self::$_instance;
         $q = $i->prepare($query);

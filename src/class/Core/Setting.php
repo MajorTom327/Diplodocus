@@ -19,7 +19,7 @@ class Setting {
 	/**
 	 * Return default value for init
 	 */
-	private static function default() {
+	private static function defaultSettings() {
 		return <<<EOT
 <?php
 \$config = [
@@ -47,21 +47,22 @@ EOT;
 	 * Reset file of settings
 	 */
 	private static function reset() {
-		file_put_contents(static::$file, self::default());
+		file_put_contents(static::$file, self::defaultSettings());
 	}
 
 	/**
 	 * Load config from file set in the static private file var.
 	 * Set somes default if no data
 	 */
-	public static function load() {
+	public static function load($file = NULL) {
 		$config = "";
 		// self::reset();
-		if (file_exists(static::$file))
-			require(static::$file);
+		$file = ($file === null) ? static::$file : $file;
+		if (file_exists($file))
+			require($file);
 		else {
-			file_put_contents(static::$file, self::default());
-			require(static::$file);
+			file_put_contents($file, self::defaultSettings());
+			require($file);
 		}
 		static::$_setting = $config;
 
