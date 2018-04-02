@@ -8,6 +8,7 @@ require_once ("class/Core/Cli.php");
 require_once ("class/Core/Setting.php");
 \Core\Setting::load();
 
+require_once ("class/Core/Table.php");
 require_once ("class/Core/Database.php");
 \Core\Database::instantiate();
 \Core\Database::update();

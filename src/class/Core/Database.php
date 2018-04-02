@@ -23,7 +23,7 @@
      }
 
      /**
-      * Update database from json configuration
+      * @brief Update database from json configuration
       */
      public static function update() {
          $update_files = scandir(\Core\Setting::main()['update-dir']);
@@ -38,6 +38,7 @@
             self::createTable('{"type":"create_table","name":"update_triceratops","param":[{"name": "filename","config": ["text", "not", "null"]}]}');
             $data = self::query("SELECT * FROM `" . \Core\Setting::database()['update_table'] . "`");
         }
+        $table_update = new \Core\Table(\Core\Setting::database()['update_table']);
          foreach ($update_files as $file) {
              $is_in = false;
              foreach ($data as $el) {
@@ -53,62 +54,20 @@
             foreach ($x as $cmd) {
                 switch ($cmd["type"]) {
                     case "create-table":
-                        self::createTable($cmd, false);
+                        \Core\Table::createTable($cmd, false);
                         break;
                     case "drop-table":
-                        self::dropTable($cmd['name']);
+                        $t = new Table($cmd['name']);
+                        $t->dropTable($cmd['name']);
+                        unset ($t);
                         break;
                 }
             }
-            self::insert(\Core\Setting::database()['update_table'], ["filename" => '"'.$file.'"']);
+            $table_update->insert(["filename" => '"'.$file.'"']);
          }
      }
+     
 
-     /**
-      * Create a new table from JSON data or maybe from array instance (json_decode)
-      * @param $config Containe the configuration in json format or array instance
-      * @param $is_encoded default true, is the type of the config payload. If true it's a JSON. Else, array
-      */
-     public static function createTable($config, $is_encoded = true) {
-        $config = ($is_encoded) ? json_decode($config, true) : $config;
-        $query = "CREATE TABLE `" . \Core\Setting::database()['base'] . "`.`" . $config['name'] . "` (";
-        $query .= "`id` INT NOT NULL AUTO_INCREMENT,";
-        foreach ($config['param'] as $param) {
-            $query .= "`{$param['name']}` ";
-            foreach ($param['config'] as $config) {
-                $query .= "" . strtoupper($config) . " ";
-            }
-            $query .= ", ";
-        }
-        $query .= "`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,";
-        $query .= "`updated_at` DATETIME ON UPDATE CURRENT_TIMESTAMP,";
-        $query .= "PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-        self::query($query);
-     }
-
-     public static function dropTable($table) {
-         $query = "DROP TABLE `" . $table . "`";
-         return (self::query($query));
-     }
-
-     /**
-      * Insert somes data in the database
-      */
-     public static function insert($table = "", $data = []) {
-         if ($table == "")
-            return (false);
-        $query = "INSERT INTO `$table` ";
-        $keys = "`id`, ";
-        $value = "NULL, ";
-        foreach($data as $key => $val){
-            $keys .= "`" . $key. "`, ";
-            $value .= $val   . ", ";
-        }
-        $keys .= "`created_at`, `updated_at`";
-        $value .= "CURRENT_TIMESTAMP, NULL";
-        $query .= "($keys) VALUES ($value)";
-        return (self::query($query));
-     }
      /**
       * Querying the database
       */
