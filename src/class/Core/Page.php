@@ -43,7 +43,8 @@ abstract class Page extends Module {
 	*	Generate the head with script and stylesheet
 	*/
 	public function head() {
-		echo "<!DOCTYPE html><html><head>";
+		$lang = \Core\Setting::main()['lang'];
+		echo "<!DOCTYPE html><html lang='$lang'><head>";
 		echo "<meta charset='utf-8'>";
 		echo "<title>" . $this->_title . " | "  . \Core\Setting::main()['sitename']. "</title>";
 		foreach (static::$_style as $css) self::render_style($css);

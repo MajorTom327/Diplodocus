@@ -9,6 +9,7 @@ $config = [
 		],
 	"main" => [
 		"sitename" => "Site Name",
+		"lang" => "fr",
 		"script" => [
 			"https://use.fontawesome.com/releases/v5.0.9/js/all.js"
 		],
@@ -17,5 +18,5 @@ $config = [
 			"assets/css/main.css",
 		],
 		"update-dir" => "./update"
-		]
+	]
 	];
