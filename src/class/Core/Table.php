@@ -73,7 +73,14 @@
 		return (\Core\Database::query($query));
 	}
 
-	private function setEqual($data) {
+	public function get($data) {
+		$table = $this->_table;
+		if ($table == "")
+		   return (false);
+		$query = "SELECT * FROM `" . $table . "` WHERE " . $this->setEqual($data['where']);
+		return (\Core\Database::query($query));
+	}
+	protected function setEqual($data) {
 		$query = "`" . $data['key'] . "` = " . $data['value'];
 		return ($query);
 	}

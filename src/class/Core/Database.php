@@ -76,6 +76,6 @@
         $i = self::$_instance;
         $q = $i->prepare($query);
         $q->execute();
-        return ($q->fetchAll(\PDO::FETCH_GROUP));
+        return ($q->fetchAll());
      }
  }

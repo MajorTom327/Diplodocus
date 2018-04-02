@@ -13,6 +13,11 @@ class Text extends \Core\Component {
 	}
 
 	public function render() {
-		return ($this->text);
+		return ($this->getLanguage());
+	}
+
+	public function getLanguage() {
+		$t = new \Controllers\Text();
+		return ($t->getLanguage($this->text, "en"));
 	}
 }
