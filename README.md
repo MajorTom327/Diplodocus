@@ -16,6 +16,8 @@ _After build, you can start and stop the server :_
 
 _ProTip:_ Adding an alias in your bashrc or zshrc (or other) can be usefull. mine is: `alias dc="docker-compose"`
 
+Don't forget to go to `localhost:9999` login and add a base with the right name (Default: `base`)
+
 
 ## Documentation
 Generating the documentation is easy. You must have [Doxygen](doxygen.org/) installed.
