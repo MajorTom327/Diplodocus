@@ -20,7 +20,7 @@ Don't forget to go to `localhost:9999` login and add a base with the right name 
 
 
 ## Documentation
-Generating the documentation is easy. You must have [Doxygen](doxygen.org/) installed.
+Generating the documentation is easy. You must have [Doxygen](http://doxygen.org/) installed.
 After installing, enter this command:
 > $> cd ./src ; doxygen .doxygen
 
